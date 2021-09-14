@@ -1,0 +1,30 @@
+remove range of History 
+
+ for line in $(seq 296 298) ; do history -d 296 ; done
+
+docker service ls --filter NAME=helper -q | xargs docker service rm 
+
+
+
+#!bin/bash
+cd /test
+touch $(seq 130 | sed 's/$/.txt/')
+for i in ` ls -l | awk '{print $9}'`
+ do
+   cp -pr $i /wget/$i
+ done
+rm -rf *
+
+
+#!bin/bash
+cd /opt/hl7producer
+for i in ` ls -l | awk '{print $9}'`
+do
+ cd $i
+	for i in ` ls -l | awk '{print $9}'` 
+        do
+           cd $i && java -jar producer.jar && cd ..
+           done
+
+cd /usr/share/nginx/html
+cp -pr * /taj/UI
