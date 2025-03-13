@@ -1,4 +1,4 @@
-sshfs -o allow_other  -o nonempty root@172.16.10.239:/logs  /var/lib/pgsql/12/data/log/
+sshfs -o allow_other  -o nonempty root@IP:/logs  /var/lib/pgsql/12/data/log/
 
 /var/lib/pgsql/12/data/log/   =   Host Machine
 /logs = remote machine
